@@ -1,6 +1,6 @@
 module Main where
 
-import Program2
+import Program3
 
 main :: IO ()
 main = mainIO
