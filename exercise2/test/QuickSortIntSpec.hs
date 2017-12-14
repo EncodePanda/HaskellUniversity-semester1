@@ -1,5 +1,6 @@
 module QuickSortIntSpec(main, spec) where
 
+import Data.List
 import Test.Hspec
 import Test.QuickCheck
 import QuickSortInt
@@ -17,7 +18,9 @@ spec = describe "QuickSortInt" $ do
     it "sorting should be idempotent" $ do
       property $ \xs -> qs (qs xs) == qs xs
 
-    -- the only property test that we really need
+    it "original and sorted should hold exact same elements" $ do
+      property (\xs -> sameElements xs(qs xs))
+
     it "after qs elements are sorted" $ property (sorted . qs)
 
 -- properties
@@ -25,3 +28,7 @@ sorted :: [Int] -> Bool
 sorted [] = True
 sorted [a] = True
 sorted (a:b:xs) = (a <= b) && (sorted xs)
+
+sameElements :: [Int]-> [Int] -> Bool
+sameElements xs ys = null (xs \\ ys) && null (ys \\ xs)
+  
