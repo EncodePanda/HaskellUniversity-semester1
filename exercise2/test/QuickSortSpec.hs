@@ -17,10 +17,10 @@ spec = describe "QuickSortInt" $ do
                (\xs -> sameElements (xs::[Double]) (qs xs))   
 
     it "after qs elements are sorted" $ do
-      property (\xs -> sorted $ qs(xs::[String]) .&&.
-               (\xs -> sorted $ qs(xs::[Int])    .&&.
-               (\xs -> sorted $ qs(xs::String)   .&&.
-               (\xs -> sorted $ qs(xs::[Double])   
+      property (\xs -> sorted $ qs (xs::[String])) .&&.
+               (\xs -> sorted $ qs (xs::[Int]))    .&&.
+               (\xs -> sorted $ qs (xs::String))   .&&.
+               (\xs -> sorted $ qs (xs::[Double]))
 
 -- properties
 sorted :: Ord a => [a] -> Bool
