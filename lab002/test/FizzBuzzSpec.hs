@@ -10,5 +10,5 @@ main = hspec spec
 
 spec :: Spec
 spec = describe "FizzBuzz" $ do
-  it "generated list is of size n" $ do
-    property (\n -> n <= 0 || (length $ fizzbuzz n) == n)
+  it "generated list is of size n bla" $ do
+    property (\(Positive n) -> (length $ fizzbuzz n) == n)
