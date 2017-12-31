@@ -20,6 +20,9 @@ spec = describe "FizzBuzz" $ do
   it "has only allowed numbers (not divide by 3 o 5) or Fizz or Buzz" $ do
     property (\(Positive n) -> null $ filter (not . allowed) (fizzbuzz n))
 
+  it "e.g turns [1..15] correctly" $ do
+    fizzbuzz 15 `shouldBe` ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz","Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]
+
 allowed :: String -> Bool
 allowed "Fizz" = True
 allowed "Buzz" = True
